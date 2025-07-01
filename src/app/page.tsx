@@ -27,7 +27,7 @@ function Home() {
     <div className="App">
       <div className='cover-container' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 32px' }}>
         <div style={{ display: 'flex', alignItems: 'center', height: '100%' }} className='text-2xl font-bold header-name'>
-          🧚 Cuwriter
+          🧚 Tabs Editor
         </div>
         <button
           onClick={onSave}
