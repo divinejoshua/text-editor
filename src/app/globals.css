@@ -22,3 +22,7 @@
   font-weight: 700;
   font-style: normal;
 }
+
+.e-de-blink-cursor {
+  border-left: 1px solid red!important;
+  }
