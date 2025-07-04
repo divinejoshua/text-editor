@@ -25,4 +25,18 @@
 
 .e-de-blink-cursor {
   border-left: 1px solid red!important;
-  }
+}
+
+.page-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.editor-container{
+  width: 80%;
+}
+
+.chat-container{
+  width: 20%;
+}

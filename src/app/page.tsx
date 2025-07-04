@@ -111,10 +111,6 @@ function Home() {
     console.log("contentChanged", contentChanged);
   }
 
-  const onSave = () => {
-    editorObj.current?.documentEditor.save("Sample", "Docx");
-  };
-
   const insertTextonLoop = async () => {
     if (!editorObj.current) return;
     const editor = editorObj.current.documentEditor.editor;
@@ -136,39 +132,66 @@ function Home() {
     editorObj.current?.documentEditor.setDefaultCharacterFormat(defaultCharacterFormat);
   }
 
+  const handleChatKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      insertTextonLoop();
+    }
+  };
+
   return (
     <div className="App">
       <div className='cover-container' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 32px' }}>
         <div style={{ display: 'flex', alignItems: 'center', height: '100%' }} className='text-2xl font-bold header-name'>
           🧚 Tabs Editor
         </div>
-        <button
-          onClick={onSave}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow transition-colors duration-200"
-          style={{ height: 40, minWidth: 100 }}
-        >
-          Download
-        </button>
-
-        <button
-          onClick={insertTextonLoop}
-          className="bg-white hover:bg-blue-700 text-black font-semibold py-2 px-6 rounded shadow transition-colors duration-200"
-          style={{ height: 40, minWidth: 100 }}
-        >
-          Insert HTML
-        </button>
+        <div className='flex flex-row gap-2'>
+          <button
+            className="bg-gray-100 hover:bg-blue-700 text-sm text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200"
+            style={{ height: 40 }}
+          >
+            Plagiarism Checker
+          </button>
+          <button
+            className="bg-gray-100 hover:bg-blue-700 text-sm text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200"
+            style={{ height: 40 }}
+          >
+            AI Detector
+          </button>
+        </div>
       </div>
-      <div style={{ marginTop: 10 }}>
-        <DocumentEditorContainerComponent
-          ref={editorObj}
-          height='90vh'
-          contentChange={onContentChange}
-          enableToolbar={true}
-          serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
-          created={onCreate}
-        >
-          <Inject services={[Toolbar]} />
-        </DocumentEditorContainerComponent>
+      <div style={{ marginTop: 10 }} className='page-container'>
+        <div className='editor-container'>
+          <DocumentEditorContainerComponent
+            ref={editorObj}
+            height='90vh'
+            contentChange={onContentChange}
+            enableToolbar={true}
+            serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
+            created={onCreate}
+          >
+            <Inject services={[Toolbar]} />
+          </DocumentEditorContainerComponent>
+        </div>
+
+        <div className="chat-container flex flex-col h-full bg-white border-l border-gray-200">
+          <div className="chat-header px-4 py-2 border-b border-gray-200">
+            <h1 className="text-lg font-semibold">Assistant</h1>
+          </div>
+          {/* Chat messages would go here */}
+          <div className="flex-1 overflow-y-auto" />
+          <div className="chat-input-area flex items-end gap-2 p-4 border-t border-gray-200 bg-white sticky bottom-0">
+            <textarea
+              className="flex-1 text-sm resize-none rounded-md border border-gray-300 p-2 text-base min-h-[40px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Type your message..."
+              rows={3}
+              onKeyDown={handleChatKeyDown}
+            />
+            
+          </div>
+        </div>
+
+
       </div>
     </div>
   );
