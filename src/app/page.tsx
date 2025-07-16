@@ -1,15 +1,18 @@
 "use client"
-import React, { useRef } from 'react';
-import { DocumentEditorContainerComponent, Toolbar, Inject } from '@syncfusion/ej2-react-documenteditor';
+import React, { useEffect, useRef, useState } from 'react';
+import { DocumentEditorContainerComponent, Toolbar, Inject, SpellChecker, Selection } from '@syncfusion/ej2-react-documenteditor';
 import './globals.css';
 
 function Home() {
   const editorObj = useRef<DocumentEditorContainerComponent | null>(null);
   let contentChanged = false;
 
+  const [onContentChangeValue, setOnContentChangeValue] = useState(false);
+
   function onContentChange() {
     contentChanged = true;
     console.log("contentChanged", contentChanged);
+    setOnContentChangeValue(contentChanged);
   }
 
   const onSave = () => {
@@ -22,6 +25,24 @@ function Home() {
     };
     editorObj.current?.documentEditor.setDefaultCharacterFormat(defaultCharacterFormat);
   }
+
+  function componentDidMount() {
+    //Accessing spell checker.
+    const spellChecker = editorObj.current?.documentEditor.spellChecker;
+    
+    if (spellChecker) {
+        //Set language id to map dictionary in server side.;
+        spellChecker.languageID = 1033;
+        spellChecker.removeUnderline = false;
+        //Allow suggetion for miss spelled word/
+        spellChecker.allowSpellCheckAndSuggestion = true;
+        spellChecker.enableOptimizedSpellCheck = true;
+    }
+  } 
+
+  useEffect(() => {
+    componentDidMount();
+  }, [onContentChangeValue]);
 
   return (
     <div className="App">
@@ -43,10 +64,11 @@ function Home() {
           height='90vh'
           contentChange={onContentChange}
           enableToolbar={true}
-          serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
+          enableSpellCheck={true}
+          serviceUrl="http://localhost:62870/api/documenteditor/"
           created={onCreate}
         >
-          <Inject services={[Toolbar]} />
+          <Inject services={[Toolbar, SpellChecker, Selection]} />
         </DocumentEditorContainerComponent>
       </div>
     </div>
