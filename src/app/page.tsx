@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { DocumentEditorContainerComponent, Toolbar, Inject, SpellChecker, Selection } from '@syncfusion/ej2-react-documenteditor';
 import './globals.css';
 
@@ -7,12 +7,9 @@ function Home() {
   const editorObj = useRef<DocumentEditorContainerComponent | null>(null);
   let contentChanged = false;
 
-  const [onContentChangeValue, setOnContentChangeValue] = useState(false);
-
   function onContentChange() {
     contentChanged = true;
     console.log("contentChanged", contentChanged);
-    setOnContentChangeValue(contentChanged);
   }
 
   const onSave = () => {
@@ -24,25 +21,14 @@ function Home() {
       fontFamily: 'Arial',
     };
     editorObj.current?.documentEditor.setDefaultCharacterFormat(defaultCharacterFormat);
-  }
-
-  function componentDidMount() {
-    //Accessing spell checker.
-    const spellChecker = editorObj.current?.documentEditor.spellChecker;
-    
-    if (spellChecker) {
-        //Set language id to map dictionary in server side.;
-        spellChecker.languageID = 1033;
-        spellChecker.removeUnderline = false;
-        //Allow suggetion for miss spelled word/
-        spellChecker.allowSpellCheckAndSuggestion = true;
-        spellChecker.enableOptimizedSpellCheck = true;
+    if(editorObj.current?.documentEditor.spellChecker) {
+      editorObj.current.documentEditor.spellChecker.languageID = 1033;
+      editorObj.current.documentEditor.spellChecker.removeUnderline = false;
+      editorObj.current.documentEditor.spellChecker.allowSpellCheckAndSuggestion = true;
+      editorObj.current.documentEditor.spellChecker.enableOptimizedSpellCheck = true;
+      editorObj.current.documentEditor.enableLocalPaste = true;
     }
-  } 
-
-  useEffect(() => {
-    componentDidMount();
-  }, [onContentChangeValue]);
+  }
 
   return (
     <div className="App">
