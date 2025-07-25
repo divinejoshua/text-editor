@@ -178,7 +178,7 @@ function Home() {
           height='90vh'
           contentChange={onContentChange}
           enableToolbar={true}
-          serviceUrl="http://localhost:62870/api/DocumentEditor"
+          serviceUrl="http://localhost:62870/api/DocumentEditor/"
           created={onCreate}
         >
           <Inject services={[Toolbar]} />
