@@ -51,7 +51,7 @@ function Home() {
           contentChange={onContentChange}
           enableToolbar={true}
           enableSpellCheck={true}
-          serviceUrl="http://localhost:62870/api/documenteditor/"
+          serviceUrl="http://localhost:4000/api/documenteditor/"
           created={onCreate}
         >
           <Inject services={[Toolbar, SpellChecker, Selection]} />
