@@ -1,129 +1,260 @@
 "use client"
-import React, { useRef } from 'react';
+import React, {useRef, useState } from 'react';
 import { DocumentEditorContainerComponent, Toolbar, Inject } from '@syncfusion/ej2-react-documenteditor';
 import './globals.css';
+import { registerLicense } from '@syncfusion/ej2-base';
 
-const html = `
-Day 1: Ancient Civilizations, Colonial Rule, and Amalgamation
-Early History and Ancient Civilizations (c. 1500 BC - 1500 AD)
-The history of Nigeria stretches back thousands of years, with archaeological evidence suggesting human habitation as early as 13,000 BC. The region was home to diverse and sophisticated civilizations long before European contact.
+const LICENSE_KEY = process.env.NEXT_PUBLIC_SYNCFUSION_LICENSE_KEY;
+registerLicense(LICENSE_KEY || '');
 
-One of the most notable was the Nok culture, which flourished between 1500 BC and 200 AD in what is now central Nigeria. The Nok are renowned for their intricate terracotta sculptures, which provide valuable insights into their artistic, technological, and social achievements. Other ancient societies include the Iwo Eleru culture in the southwest and the Daima culture in the Lake Chad region.
+const cvHtml = ` <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divine Erhomonsele - Software Engineer CV</title>
+  <!-- Tailwind CSS CDN for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for the Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+    }
+    /* Custom style for bullet points */
+   
+  </style>
+</head>
+<body class="p-4 sm:p-8 flex justify-center">
 
-By the 9th century AD, significant kingdoms and empires began to emerge:
+  <!-- Main CV container -->
+  <div class="max-w-4xl w-full bg-white rounded-xl shadow-xl p-6 sm:p-10 border border-gray-200">
 
-Kanem-Bornu Empire: Located around Lake Chad, this empire prospered through trans-Saharan trade and developed complex political systems. It lasted for over a millennium, facing challenges from various groups.
+    <!-- Header Section: Name and contact info -->
+    <header class="pb-6 border-b border-gray-200 text-center">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">Divine Erhomonsele</h1>
+      <p class="text-sm sm:text-base space-x-2">
+        <span>(555) 123-4567</span> |
+        <span>divine.erhomonsele@email.com</span> |
+        <a href="https://www.linkedin.com/in/divine_erhomonsele" class="text-blue-600 hover:underline">linkedin.com/in/divine_erhomonsele</a>
+      </p>
+    </header>
 
-Hausa City-States: In northern Nigeria, cities like Kano, Zaria, and Katsina developed into powerful city-states from around 1000 AD. While sharing common language, culture, and later, Islam, they were often in rivalry. The Sokoto Caliphate was established in the 19th century by Usman Dan Fodio, unifying many of these states under Islamic rule.
+    <!-- Summary Section -->
+    <section class="py-6 border-b border-gray-200">
+      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-3">Summary</h2>
+      <p class="leading-relaxed text-sm sm:text-base">A passionate and results-driven Software Engineer with a Bachelor of Science in Computer Science from Stanford University. Proven experience in developing and shipping high-quality software, with a strong focus on object-oriented programming, cloud computing, and problem-solving. Possesses a deep understanding of mission-critical systems and a growth mindset dedicated to optimizing customer experiences. Seeking to apply my technical skills and a passion for distributed web services to a mission-critical role within the Azure Cloud Experience team.</p>
+    </section>
 
-Yoruba Kingdoms: In the west, the Yoruba people established powerful city-states, with Ile-Ife considered the mythical origin point. Oyo became the most dominant Yoruba kingdom in the 16th and 17th centuries, known for its strong military and influence over other states.
+    <!-- Experience Section -->
+    <section class="py-6 border-b border-gray-200">
+      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-4">Experience</h2>
+      <div class="mb-5">
+        <h3 class="text-base sm:text-lg font-bold">Software Engineer Intern</h3>
+        <p class="text-sm mb-2">Cloud Solutions, Inc. | May 2024 - August 2024</p>
+        <ul class="list-disc list-disc-inside text-sm space-y-1">
+          <li>Collaborated on a team focused on improving the reliability and performance of distributed web services, contributing directly to a platform that processed live site telemetry.</li>
+          <li>Developed and implemented new features for a cloud-based support platform using <strong class="text-blue-600">C#</strong> and object-oriented principles, resulting in a 15% reduction in incident resolution time.</li>
+          <li>Participated in all stages of the software development lifecycle, from initial ideation and design to deployment and live site support for a critical internal service.</li>
+          <li>Gained hands-on experience with a major cloud platform, assisting in the management and stabilization of workloads to optimize customer experiences (CXP).</li>
+        </ul>
+      </div>
+    </section>
 
-Benin Kingdom: Located in the Edo-speaking region, the Benin Kingdom emerged around the 13th century. It became a major trading power, renowned for its elaborate bronze castings and a highly centralized political system under the Oba.
+    <!-- Projects Section -->
+    <section class="py-6 border-b border-gray-200">
+      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-4">Projects</h2>
+      <div class="mb-5">
+        <h3 class="text-base sm:text-lg font-bold">E-commerce Platform</h3>
+        <p class="text-sm mb-2">Personal Project | 2023</p>
+        <ul class="list-disc list-disc-inside text-sm space-y-1">
+          <li>Designed and built a full-stack e-commerce website from the ground up, demonstrating proficiency in web service development and distributed systems.</li>
+          <li>Utilized <strong class="text-blue-600">C#</strong> and the ASP.NET Core framework to build a robust backend, including product management, user authentication, and a secure payment gateway.</li>
+          <li>Implemented a relational database to manage product inventory and customer data, ensuring data integrity and system reliability.</li>
+        </ul>
+      </div>
+    </section>
 
-Igbo Societies: In contrast to the centralized monarchies, many Igbo societies in the southeast were organized into self-contained villages or federations, with governance shared among elders and age-grade associations. The Aro Confederacy later established significant influence through trade and oracular activities.
+    <!-- Education Section -->
+    <section class="py-6 border-b border-gray-200">
+      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-3">Education</h2>
+      <p class="text-sm sm:text-base">
+        <strong class="font-semibold">Stanford University</strong> | Stanford, CA<br>
+        Bachelor of Science in Computer Science | May 2025
+      </p>
+    </section>
 
-Islam arrived in Nigeria through the Bornu Empire around the 11th century and spread to the Hausa kingdoms, facilitating long-distance trade and introducing new administrative tools. Christianity was introduced in the 15th century by Portuguese monks to the Kingdom of Warri.
+    <!-- Skills Section -->
+    <section class="py-6">
+      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-3">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm sm:text-base">
+        <div>
+          <strong class="font-semibold">Programming Languages:</strong>
+          <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
+            <li>C#, Python, Java, JavaScript, SQL</li>
+          </ul>
+        </div>
+        <div>
+          <strong class="font-semibold">Cloud Platforms:</strong>
+          <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
+            <li>Azure, AWS</li>
+          </ul>
+        </div>
+        <div>
+          <strong class="font-semibold">Technologies:</strong>
+          <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
+            <li>ASP.NET Core, RESTful APIs, Git, Microsoft Azure Services</li>
+          </ul>
+        </div>
+        <div class="sm:col-span-2 lg:col-span-3">
+          <strong class="font-semibold">Concepts:</strong>
+          <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
+            <li>Object-Oriented Programming (OOP), Distributed Systems, Data Processing, Problem Solving, Live Site Support, Incident Management (IcM)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-The Trans-Atlantic Slave Trade (16th - 19th Centuries)
-From the 16th to the 19th centuries, the trans-Atlantic slave trade had a devastating impact on the Nigerian region. Millions of people, particularly from the areas bordering the Bight of Benin (which became known as the "Slave Coast"), were forcibly taken and transported to the Americas. This brutal trade led to:
+  </div>
 
-Depopulation: The loss of strong, young men and women severely impacted communities and hindered economic and agricultural development.
+</body>
+</html>`
 
-Increased Conflict: The demand for enslaved people fueled inter-ethnic wars and raids, creating an atmosphere of lawlessness and violence.
 
-Societal Disruption: Families were torn apart, traditional industries declined as focus shifted to the slave trade, and existing empires like Oyo and Benin were weakened by internal strife and reliance on the trade.
+const coverHtml = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divine Erhomonsele - Cover Letter</title>
+  <!-- Tailwind CSS CDN for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for the Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+    }
+    p {
+      text-indent: 1.5rem;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8 flex justify-center">
 
-Economic Disruption: While some coastal states initially gained wealth, the overall effect was devastating, destabilizing societies and making sustainable development impossible.
+  <!-- Main Cover Letter container -->
+  <div class="max-w-4xl w-full bg-white rounded-xl shadow-xl p-6 sm:p-10 border border-gray-200">
 
-British Colonization and Amalgamation (Mid-19th Century - 1914)
-British interest in Nigeria grew in the 19th century, initially driven by the desire to abolish the slave trade (which also served as an excuse for intervention) and to promote their trading interests, particularly in palm oil and other resources.
+    <!-- Sender's Information (Your Info) -->
+    <address class="not-italic text-sm sm:text-base text-gray-700 leading-tight">
+      <span class="font-semibold text-gray-800">Divine Erhomonsele</span><br>
+      (555) 123-4567<br>
+      divine.erhomonsele@email.com<br>
+    </address>
 
-Early Interventions: Britain annexed Lagos in 1861 and established the Oil River Protectorate in 1884. British influence gradually expanded, but effective occupation began after the 1885 Berlin Conference, where European powers formally recognized Britain's claim over the area.
+    <!-- Date -->
+    <p class="text-sm sm:text-base text-gray-700 mt-6">
+      August 15, 2025
+    </p>
 
-Company Rule: From 1886 to 1899, much of the country was administered by the Royal Niger Company, led by George Taubman Goldie, which secured British dominance against other European rivals.
+    <!-- Recipient's Information -->
+    <address class="not-italic text-sm sm:text-base text-gray-700 leading-tight mt-6">
+      <span class="font-semibold">Hiring Manager</span><br>
+      Microsoft | Azure Cloud Experience Team<br>
+      One Microsoft Way<br>
+      Redmond, WA 98052
+    </address>
 
-Crown Rule and Protectorates: In 1900, the British government assumed direct control, establishing the Southern Nigeria Protectorate and the Northern Nigeria Protectorate.
+    <!-- Salutation -->
+    <p class="mt-6 text-sm sm:text-base text-gray-700">
+      Dear Hiring Manager,
+    </p>
 
-The Amalgamation of 1914: On January 1, 1914, Lord Frederick Lugard, the Governor of both protectorates, formally amalgamated them to form the Colony and Protectorate of Nigeria. This administrative act was primarily for economic and administrative convenience, allowing the more prosperous Southern Protectorate to subsidize the less developed North. The amalgamation brought together diverse ethnic and religious groups with distinct histories, cultures, and political organizations under a single colonial administration. This "divide and rule" policy, while facilitating British control, also sowed seeds of future ethnic and regional tensions.
+    <!-- Body of the Cover Letter -->
+    <p class="mt-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+      I am writing with great enthusiasm to express my interest in the Software Engineer position on the Azure Cloud Experience team, as advertised on the Microsoft Careers website. Microsoft's mission to "empower every person and every organization on the planet to achieve more" deeply resonates with my own passion for leveraging technology to solve complex problems and create impactful solutions. As a recent graduate with a strong foundation in C# and experience in building distributed web services, I am confident that I can contribute to your team's mission of transforming cloud customers into fans.
+    </p>
 
-Indirect Rule: The British implemented a system of "indirect rule," particularly in the North, where they governed through existing traditional chiefs and institutions, albeit under British guidance. This system had varying degrees of success and impact across different regions.
+    <p class="mt-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+      My academic and professional background has provided me with practical experience that directly aligns with the qualifications for this role. During my internship at Cloud Solutions, Inc., I had the opportunity to work with a platform that processed live site telemetry, giving me firsthand experience with the demands of building and maintaining mission-critical services. I applied object-oriented principles to develop new features that measurably improved incident resolution, a skill set that I believe is highly relevant to your work on the Incident Management (IcM) system.
+    </p>
 
-Day 2: Independence, Civil War, Military Rule, and Modern Challenges
-Path to Independence (Post-WWII - 1960)
-After World War II, a strong nationalist movement emerged in Nigeria, driven by educated elites and a growing awareness of self-determination. Key figures like Nnamdi Azikiwe, Obafemi Awolowo, and Abubakar Tafawa Balewa played crucial roles in advocating for independence.
+    <p class="mt-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+      Beyond my internship, my personal project to build a full-stack e-commerce platform provided me with comprehensive, end-to-end experience in web service development. By utilizing C# and ASP.NET Core, I gained a deep understanding of creating robust backends, managing data, and ensuring security—all critical components of shipping high-quality, reliable services. This project, combined with my internship, has given me practical exposure to cloud platforms and a solid foundation in the principles of building scalable, secure, and reliable software.
+    </p>
 
-Constitutional Reforms: The British gradually introduced constitutional reforms, granting Nigerians greater autonomy.
+    <p class="mt-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+      I am a self-starter who thrives on technological challenges and is committed to continuous learning. The opportunity to contribute to the core of Azure, a platform that is central to so many businesses, is incredibly exciting to me. Thank you for your time and consideration. I look forward to the possibility of discussing how my skills and passion can benefit the Azure Cloud Experience team.
+    </p>
 
-Political Parties: Major political parties formed along regional and ethnic lines, including the National Council of Nigeria and the Cameroons (NCNC), the Northern People's Congress (NPC), and the Action Group (AG).
+    <!-- Closing -->
+    <p class="mt-6 text-sm sm:text-base text-gray-700">
+      Sincerely,
+    </p>
 
-Self-Governance: By the 1950s, Nigeria was transitioning towards self-rule, culminating in the Nigeria Independence Act 1960.
+    <p class="mt-8 text-sm sm:text-base text-gray-700 font-bold">
+      Divine Erhomonsele
+    </p>
 
-Independence Day: On October 1, 1960, Nigeria gained full independence from British rule, becoming a constitutional monarchy within the Commonwealth of Nations. Sir Abubakar Tafawa Balewa became the first Prime Minister, and Nnamdi Azikiwe served as the first Governor-General (later President when Nigeria became a republic in 1963).
+  </div>
 
-The Nigerian Civil War (1967-1970)
-The euphoria of independence was short-lived. Deep-seated ethnic, religious, and economic tensions, exacerbated by colonial policies and regional rivalries, led to instability.
-
-First Military Coup (January 1966): A group of largely Igbo junior army officers staged a coup, assassinating the Prime Minister and regional premiers. This led to a military administration under Major General Johnson Aguiyi-Ironsi (an Igbo).
-
-Counter-Coup (July 1966): Northern officers staged a counter-coup, assassinating Aguiyi-Ironsi and bringing Lieutenant Colonel (later General) Yakubu Gowon to power. This was followed by widespread anti-Igbo riots in the North.
-
-Biafran Secession: In response to the persecution and perceived marginalization, the Eastern Region, largely inhabited by the Igbo people, declared its secession as the Republic of Biafra on May 30, 1967, led by Lieutenant Colonel Odumegwu Ojukwu.
-
-The War: The federal government viewed this as an act of rebellion, leading to a brutal civil war that lasted from July 1967 to January 1970. The conflict resulted in an estimated 500,000 to 3 million deaths, primarily due to starvation and disease caused by blockades.
-
-End of War: Biafra surrendered on January 15, 1970, and Nigeria was reunified.
-
-Military Rule and Aborted Transitions (1970-1999)
-Following the Civil War, Nigeria entered a prolonged period of military rule, punctuated by brief attempts at civilian governance.
-
-Gowon's Regime: General Gowon's government focused on reconciliation and reconstruction after the war.
-
-Successive Coups: The country experienced a series of military coups, with leaders like Murtala Mohammed (who initiated a transition to civilian rule but was assassinated), Olusegun Obasanjo (who handed power to civilians in 1979), Muhammadu Buhari, Ibrahim Babangida (who annulled the 1993 presidential election results), and Sani Abacha.
-
-Second Republic (1979-1983): A brief return to civilian rule under President Shehu Shagari (Second Republic) was characterized by corruption and political instability, leading to another military coup in 1983.
-
-Abacha's Regime (1993-1998): General Sani Abacha's rule was marked by severe human rights abuses, political repression, and international isolation.
-
-Return to Democracy and Modern Challenges (1999-Present)
-Fourth Republic: Following Abacha's sudden death in 1998, General Abdulsalami Abubakar initiated a swift transition to civilian rule. On May 29, 1999, Nigeria returned to democracy with the inauguration of Olusegun Obasanjo (a former military head of state) as President, marking the beginning of the Fourth Republic.
-
-Democratic Consolidation: Since 1999, Nigeria has maintained continuous civilian rule, the longest such period since independence. Power has been transferred peacefully between different political parties.
-
-Current Challenges: Despite its status as Africa's largest economy and most populous nation, Nigeria continues to grapple with significant challenges:
-
-Insecurity: Persistent issues include Boko Haram insurgency in the northeast, banditry and kidnappings in the northwest, and separatist agitations in the southeast.
-
-Economic Instability: The economy is heavily reliant on oil, making it vulnerable to price fluctuations. Challenges include high inflation, unemployment, widespread poverty (with a large percentage of the population living below the poverty line), and inadequate infrastructure (power, transport).
-
-Governance Issues: Corruption, weak public institutions, and spatial inequality (disparities between regions) remain significant hurdles to development.
-
-Social Issues: Limited job creation, a large youth population entering the labor force annually, and increasing emigration reflect the lack of opportunities for many citizens.
-
-Nigeria's journey has been complex, shaped by its rich pre-colonial heritage, the profound impact of colonialism and the slave trade, and the struggles of nation-building. The country continues to strive for stability, economic diversification, and improved living standards for its diverse population.
-` 
+</body>
+</html>
+`
 
 function Home() {
   const editorObj = useRef<DocumentEditorContainerComponent | null>(null);
   let contentChanged = false;
+  
+  // Add state for message history and loading
+  const [messageHistory, setMessageHistory] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [messageCount, setMessageCount] = useState(0);
 
   function onContentChange() {
     contentChanged = true;
     console.log("contentChanged", contentChanged);
   }
 
-  const insertTextonLoop = async () => {
-    if (!editorObj.current) return;
-    const editor = editorObj.current.documentEditor.editor;
-    // Split html into words, preserving whitespace after each word
-    const wordRegex = /\S+\s*/g;
-    const words = html.match(wordRegex) || [];
-    for (let i = 0; i < words.length; i += 5) {
-      const chunk = words.slice(i, i + 5).join("");
-      editor.pasteContents(chunk);
-      // eslint-disable-next-line no-await-in-loop
-      await new Promise(res => setTimeout(res, 100)); // 100ms delay between chunks
-    }
-  };
+  function inserText() {
+    setIsLoading(true);
+    
+    // Determine which content to insert based on message count
+    const htmlContent = messageCount === 0 ? cvHtml : coverHtml;
+    
+    const http = new XMLHttpRequest();
+    http.open('POST', 'http://localhost:62870/api/extra/loadstring');
+    http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    http.responseType = 'json';
+    http.onreadystatechange = function () {
+      if (http.readyState === 4) {
+        // Add 3 second delay before hiding loader
+        setTimeout(() => {
+          setIsLoading(false);
+      
+        
+          if (http.status === 200 || http.status === 304) {
+            // Insert the sfdt content in cursor position using paste API
+            editorObj.current?.documentEditor.editor.paste(http.response);
+          } else {
+            alert('failed;');
+          }
+
+      }, 3000);
+      }
+    };
+
+    const htmlContentData: { content: string } = { content: htmlContent };
+    http.send(JSON.stringify(htmlContentData));
+  }
+  
 
   function onCreate() {
     const defaultCharacterFormat = {
@@ -135,7 +266,20 @@ function Home() {
   const handleChatKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      insertTextonLoop();
+      const textarea = e.target as HTMLTextAreaElement;
+      const message = textarea.value.trim();
+      
+      if (message) {
+        // Add message to history
+        setMessageHistory(prev => [...prev, message]);
+        setMessageCount(prev => prev + 1);
+        
+        // Clear textarea
+        textarea.value = '';
+        
+        // Insert content
+        inserText();
+      }
     }
   };
 
@@ -161,13 +305,18 @@ function Home() {
         </div>
       </div>
       <div style={{ marginTop: 10 }} className='page-container'>
+      {isLoading ?
+        <div className="linear-activity fixed top-0">
+          <div className="indeterminate"></div>
+        </div> : null
+      }
         <div className='editor-container'>
           <DocumentEditorContainerComponent
             ref={editorObj}
             height='90vh'
             contentChange={onContentChange}
             enableToolbar={true}
-            serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
+            serviceUrl="http://localhost:62870/api/DocumentEditor/"
             created={onCreate}
           >
             <Inject services={[Toolbar]} />
@@ -178,8 +327,21 @@ function Home() {
           <div className="chat-header px-4 py-2 border-b border-gray-200">
             <h1 className="text-lg font-semibold">Assistant</h1>
           </div>
-          {/* Chat messages would go here */}
-          <div className="flex-1 overflow-y-auto" />
+          
+          {/* Message History */}
+          <div className="flex-1 overflow-y-auto p-4">
+            {messageHistory.map((message, index) => (
+              <div key={index} className="mb-3 p-3 bg-gray-100 rounded-lg">
+                <p className="text-sm text-gray-800">{message}</p>
+              </div>
+            ))}
+            {isLoading && (
+              <div className="mb-3 p-3 bg-blue-100 rounded-lg">
+                <p className="text-sm text-blue-800">Loading...</p>
+              </div>
+            )}
+          </div>
+          
           <div className="chat-input-area flex items-end gap-2 p-4 border-t border-gray-200 bg-white sticky bottom-0">
             <textarea
               className="flex-1 text-sm resize-none rounded-md border border-gray-300 p-2 text-base min-h-[40px] focus:outline-none focus:ring-2 focus:ring-blue-500"
