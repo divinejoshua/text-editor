@@ -7,7 +7,8 @@ import { registerLicense } from '@syncfusion/ej2-base';
 const LICENSE_KEY = process.env.NEXT_PUBLIC_SYNCFUSION_LICENSE_KEY;
 registerLicense(LICENSE_KEY || '');
 
-const cvHtml = ` <!DOCTYPE html>
+const cvHtml = `
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -25,7 +26,9 @@ const cvHtml = ` <!DOCTYPE html>
       background-color: #f3f4f6;
     }
     /* Custom style for bullet points */
-   
+    ul.list-disc-inside li::marker {
+      color: #3b82f6; /* A shade of blue */
+    }
   </style>
 </head>
 <body class="p-4 sm:p-8 flex justify-center">
@@ -35,84 +38,71 @@ const cvHtml = ` <!DOCTYPE html>
 
     <!-- Header Section: Name and contact info -->
     <header class="pb-6 border-b border-gray-200 text-center">
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">Divine Erhomonsele</h1>
-      <p class="text-sm sm:text-base space-x-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-800 tracking-tight mb-2">Divine Erhomonsele</h1>
+      <p class="text-sm sm:text-base text-gray-600 space-x-2">
         <span>(555) 123-4567</span> |
         <span>divine.erhomonsele@email.com</span> |
-        <a href="https://www.linkedin.com/in/divine_erhomonsele" class="text-blue-600 hover:underline">linkedin.com/in/divine_erhomonsele</a>
+        <a href="#" class="text-blue-600 hover:underline">linkedin.com/in/divine_erhomonsele</a>
       </p>
     </header>
 
     <!-- Summary Section -->
     <section class="py-6 border-b border-gray-200">
-      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-3">Summary</h2>
-      <p class="leading-relaxed text-sm sm:text-base">A passionate and results-driven Software Engineer with a Bachelor of Science in Computer Science from Stanford University. Proven experience in developing and shipping high-quality software, with a strong focus on object-oriented programming, cloud computing, and problem-solving. Possesses a deep understanding of mission-critical systems and a growth mindset dedicated to optimizing customer experiences. Seeking to apply my technical skills and a passion for distributed web services to a mission-critical role within the Azure Cloud Experience team.</p>
+      <h2 class="text-xl sm:text-2xl font-bold text-gray-700 tracking-wide mb-3">Summary</h2>
+      <p class="text-gray-700 leading-relaxed text-sm sm:text-base">A passionate and results-driven Software Engineer with a strong academic foundation from both Nottingham Trent University and Babcock University. Proven experience in developing and shipping high-quality software, with a deep focus on cloud computing, AI, and mission-critical systems. My work at Wetrocloud and expertise in technologies like C#, Retrieval-Augmented Generation (RAG), and Cloud Computing directly aligns with Microsoft's mission to optimize customer experiences (CXP). Seeking to apply my technical skills and a passion for distributed web services to a role within the Azure Cloud Experience team.</p>
     </section>
 
     <!-- Experience Section -->
     <section class="py-6 border-b border-gray-200">
-      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-4">Experience</h2>
+      <h2 class="text-xl sm:text-2xl font-bold text-gray-700 tracking-wide mb-4">Experience</h2>
       <div class="mb-5">
-        <h3 class="text-base sm:text-lg font-bold">Software Engineer Intern</h3>
-        <p class="text-sm mb-2">Cloud Solutions, Inc. | May 2024 - August 2024</p>
-        <ul class="list-disc list-disc-inside text-sm space-y-1">
-          <li>Collaborated on a team focused on improving the reliability and performance of distributed web services, contributing directly to a platform that processed live site telemetry.</li>
-          <li>Developed and implemented new features for a cloud-based support platform using <strong class="text-blue-600">C#</strong> and object-oriented principles, resulting in a 15% reduction in incident resolution time.</li>
-          <li>Participated in all stages of the software development lifecycle, from initial ideation and design to deployment and live site support for a critical internal service.</li>
-          <li>Gained hands-on experience with a major cloud platform, assisting in the management and stabilization of workloads to optimize customer experiences (CXP).</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="py-6 border-b border-gray-200">
-      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-4">Projects</h2>
-      <div class="mb-5">
-        <h3 class="text-base sm:text-lg font-bold">E-commerce Platform</h3>
-        <p class="text-sm mb-2">Personal Project | 2023</p>
-        <ul class="list-disc list-disc-inside text-sm space-y-1">
-          <li>Designed and built a full-stack e-commerce website from the ground up, demonstrating proficiency in web service development and distributed systems.</li>
-          <li>Utilized <strong class="text-blue-600">C#</strong> and the ASP.NET Core framework to build a robust backend, including product management, user authentication, and a secure payment gateway.</li>
-          <li>Implemented a relational database to manage product inventory and customer data, ensuring data integrity and system reliability.</li>
+        <h3 class="text-base sm:text-lg font-bold text-gray-800">Software Engineer</h3>
+        <p class="text-sm text-gray-600 mb-2">Wetrocloud | 2023 - Present</p>
+        <ul class="list-disc list-disc-inside text-gray-700 text-sm sm:text-base space-y-1">
+          <li>Contributed to the development of a flagship AI document editor, focusing on data extraction and Retrieval-Augmented Generation (RAG) to build solutions that matter.</li>
+          <li>Gained extensive experience with AI, LLMs, and distributed cloud systems.</li>
+          <li>Applied core software engineering principles to a product that directly impacts the user experience and drives innovation.</li>
         </ul>
       </div>
     </section>
 
     <!-- Education Section -->
     <section class="py-6 border-b border-gray-200">
-      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-3">Education</h2>
-      <p class="text-sm sm:text-base">
-        <strong class="font-semibold">Stanford University</strong> | Stanford, CA<br>
-        Bachelor of Science in Computer Science | May 2025
-      </p>
+      <h2 class="text-xl sm:text-2xl font-bold text-gray-700 tracking-wide mb-3">Education</h2>
+      <div class="mb-4">
+        <p class="text-gray-700 text-sm sm:text-base">
+          <strong class="font-semibold text-gray-800">Nottingham Trent University</strong> | Nottingham, UK<br>
+          Bachelor's degree, Software Engineering | Sep 2021 - Jul 2025
+        </p>
+      </div>
+      <div>
+        <p class="text-gray-700 text-sm sm:text-base">
+          <strong class="font-semibold text-gray-800">Babcock University</strong> | Ilishan-Remo, Nigeria<br>
+          Bachelor's degree, Software Engineering | Aug 2019 - 2021
+        </p>
+      </div>
     </section>
 
     <!-- Skills Section -->
     <section class="py-6">
-      <h2 class="text-xl sm:text-2xl font-bold tracking-wide mb-3">Skills</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm sm:text-base">
+      <h2 class="text-xl sm:text-2xl font-bold text-gray-700 tracking-wide mb-3">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm sm:text-base text-gray-700">
         <div>
-          <strong class="font-semibold">Programming Languages:</strong>
+          <strong class="font-semibold text-gray-800">Programming Languages:</strong>
           <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
             <li>C#, Python, Java, JavaScript, SQL</li>
           </ul>
         </div>
         <div>
-          <strong class="font-semibold">Cloud Platforms:</strong>
+          <strong class="font-semibold text-gray-800">Cloud & AI:</strong>
           <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
-            <li>Azure, AWS</li>
+            <li>Cloud Computing, Retrieval-Augmented Generation (RAG), Custom GPTs, Docker</li>
           </ul>
         </div>
         <div>
-          <strong class="font-semibold">Technologies:</strong>
+          <strong class="font-semibold text-gray-800">Technologies:</strong>
           <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
             <li>ASP.NET Core, RESTful APIs, Git, Microsoft Azure Services</li>
-          </ul>
-        </div>
-        <div class="sm:col-span-2 lg:col-span-3">
-          <strong class="font-semibold">Concepts:</strong>
-          <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
-            <li>Object-Oriented Programming (OOP), Distributed Systems, Data Processing, Problem Solving, Live Site Support, Incident Management (IcM)</li>
           </ul>
         </div>
       </div>
@@ -121,7 +111,8 @@ const cvHtml = ` <!DOCTYPE html>
   </div>
 
 </body>
-</html>`
+</html>
+`
 
 
 const coverHtml = `
@@ -179,19 +170,19 @@ const coverHtml = `
 
     <!-- Body of the Cover Letter -->
     <p class="mt-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-      I am writing with great enthusiasm to express my interest in the Software Engineer position on the Azure Cloud Experience team, as advertised on the Microsoft Careers website. Microsoft's mission to "empower every person and every organization on the planet to achieve more" deeply resonates with my own passion for leveraging technology to solve complex problems and create impactful solutions. As a recent graduate with a strong foundation in C# and experience in building distributed web services, I am confident that I can contribute to your team's mission of transforming cloud customers into fans.
+      I am writing with great enthusiasm to express my interest in the Software Engineer position on the Azure Cloud Experience team, as advertised on the Microsoft Careers website. Microsoft's mission to "empower every person and every organization on the planet to achieve more" deeply resonates with my own passion for leveraging technology to solve complex problems and create impactful solutions. As a final-year student with a strong foundation in C# and current experience in building AI-powered web services, I am confident that I can contribute to your team's mission of transforming cloud customers into fans.
     </p>
 
     <p class="mt-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-      My academic and professional background has provided me with practical experience that directly aligns with the qualifications for this role. During my internship at Cloud Solutions, Inc., I had the opportunity to work with a platform that processed live site telemetry, giving me firsthand experience with the demands of building and maintaining mission-critical services. I applied object-oriented principles to develop new features that measurably improved incident resolution, a skill set that I believe is highly relevant to your work on the Incident Management (IcM) system.
+      My current role as a Software Engineer at Wetrocloud has provided me with practical experience that directly aligns with the qualifications for this role. I have been actively involved in developing an AI Document Editor that leverages Retrieval-Augmented Generation (RAG) and other LLM technologies. This work has given me firsthand experience with the demands of building and maintaining mission-critical services and has deepened my understanding of distributed cloud systems. My experience with AI, LLMs, and data extraction is highly relevant to your team's focus on innovative, in-product experiences.
     </p>
 
     <p class="mt-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-      Beyond my internship, my personal project to build a full-stack e-commerce platform provided me with comprehensive, end-to-end experience in web service development. By utilizing C# and ASP.NET Core, I gained a deep understanding of creating robust backends, managing data, and ensuring security—all critical components of shipping high-quality, reliable services. This project, combined with my internship, has given me practical exposure to cloud platforms and a solid foundation in the principles of building scalable, secure, and reliable software.
+      My academic background, including a Bachelor's degree in Software Engineering from Nottingham Trent University and my prior studies at Babcock University, has provided me with a solid foundation in core software engineering principles. I am a self-starter who thrives on technological challenges and is committed to continuous learning, a growth mindset that I believe is central to the culture of your team. The opportunity to contribute to the core of Azure, a platform that is central to so many businesses, is incredibly exciting to me.
     </p>
 
     <p class="mt-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-      I am a self-starter who thrives on technological challenges and is committed to continuous learning. The opportunity to contribute to the core of Azure, a platform that is central to so many businesses, is incredibly exciting to me. Thank you for your time and consideration. I look forward to the possibility of discussing how my skills and passion can benefit the Azure Cloud Experience team.
+      Thank you for your time and consideration. I look forward to the possibility of discussing how my skills and passion can benefit the Azure Cloud Experience team.
     </p>
 
     <!-- Closing -->
