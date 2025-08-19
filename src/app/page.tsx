@@ -12,6 +12,30 @@ function Home() {
     console.log("contentChanged", contentChanged);
   }
 
+  function load(): void {
+    fetch(
+    'https://ej2-document-editor-web-services.tabseditor.com/api/extra/LoadFromS3',
+    {
+        method: 'Post',
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        body: JSON.stringify({ documentName: 'Instagram strategy.docx' })
+    }
+  )
+    .then(response => {
+        if (response.status === 200 || response.status === 304) {
+            return response.json(); // Return the Promise
+        } else {
+            throw new Error('Error loading data');
+        }
+    })
+    .then(json => {
+      editorObj.current?.documentEditor.open(JSON.stringify(json));
+    })
+    .catch(error => {
+        console.error(error);
+    });
+  }
+  
   const onSave = () => {
     editorObj.current?.documentEditor.save("Sample", "Docx");
   };
@@ -36,6 +60,13 @@ function Home() {
         >
           Download
         </button>
+        <button
+          onClick={load}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow transition-colors duration-200"
+          style={{ height: 40, minWidth: 100 }}
+        >
+          Load
+        </button>
       </div>
       <div style={{ marginTop: 10 }}>
         <DocumentEditorContainerComponent
@@ -43,7 +74,7 @@ function Home() {
           height='90vh'
           contentChange={onContentChange}
           enableToolbar={true}
-          serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
+          serviceUrl="https://ej2-document-editor-web-services.tabseditor.com/"
           created={onCreate}
         >
           <Inject services={[Toolbar]} />
