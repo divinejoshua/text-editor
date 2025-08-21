@@ -74,7 +74,7 @@ function Home() {
           height='90vh'
           contentChange={onContentChange}
           enableToolbar={true}
-          serviceUrl="https://ej2-document-editor-web-services.tabseditor.com/"
+          serviceUrl="https://ej2-document-editor-web-services.tabseditor.com/api/documenteditor/"
           created={onCreate}
         >
           <Inject services={[Toolbar]} />
