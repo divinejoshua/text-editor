@@ -2,6 +2,10 @@
 import React, { useRef } from 'react';
 import { DocumentEditorContainerComponent, Toolbar, Inject } from '@syncfusion/ej2-react-documenteditor';
 import './globals.css';
+import { registerLicense } from '@syncfusion/ej2-base';
+
+const LICENSE_KEY = process.env.NEXT_PUBLIC_SYNCFUSION_LICENSE_KEY;
+registerLicense(LICENSE_KEY || '');
 
 function Home() {
   const editorObj = useRef<DocumentEditorContainerComponent | null>(null);
