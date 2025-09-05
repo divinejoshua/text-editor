@@ -11,104 +11,126 @@ const cvHtml = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Divine Erhomonsele - Software Engineer CV</title>
-  <!-- Tailwind CSS CDN for styling -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts for the Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f3f4f6;
-    }
-    /* Custom style for bullet points */
-    ul.list-disc-inside li::marker {
-      color: #3b82f6; /* A shade of blue */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+    </style>
 </head>
-<body class="p-4 sm:p-8 flex justify-center">
+<body class="p-4 md:p-8">
 
-  <!-- Main CV container -->
-  <div class="max-w-4xl w-full bg-white rounded-xl shadow-xl p-6 sm:p-10 border border-gray-200">
+    <div class="bg-white max-w-4xl mx-auto rounded-lg shadow-xl p-6 md:p-10">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-6">INVOICE</h1>
 
-    <!-- Header Section: Name and contact info -->
-    <header class="pb-6 border-b border-gray-200 text-center">
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-800 tracking-tight mb-2">Divine Erhomonsele</h1>
-      <p class="text-sm sm:text-base text-gray-600 space-x-2">
-        <span>(555) 123-4567</span> |
-        <span>divine.erhomonsele@email.com</span> |
-        <a href="#" class="text-blue-600 hover:underline">linkedin.com/in/divine_erhomonsele</a>
-      </p>
-    </header>
-
-    <!-- Summary Section -->
-    <section class="py-6 border-b border-gray-200">
-      <h2 class="text-xl sm:text-2xl font-bold text-gray-700 tracking-wide mb-3">Summary</h2>
-      <p class="text-gray-700 leading-relaxed text-sm sm:text-base">A passionate and results-driven Software Engineer with a strong academic foundation from both Nottingham Trent University and Babcock University. Proven experience in developing and shipping high-quality software, with a deep focus on cloud computing, AI, and mission-critical systems. My work at Wetrocloud and expertise in technologies like C#, Retrieval-Augmented Generation (RAG), and Cloud Computing directly aligns with Microsoft's mission to optimize customer experiences (CXP). Seeking to apply my technical skills and a passion for distributed web services to a role within the Azure Cloud Experience team.</p>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="py-6 border-b border-gray-200">
-      <h2 class="text-xl sm:text-2xl font-bold text-gray-700 tracking-wide mb-4">Experience</h2>
-      <div class="mb-5">
-        <h3 class="text-base sm:text-lg font-bold text-gray-800">Software Engineer</h3>
-        <p class="text-sm text-gray-600 mb-2">Wetrocloud | 2023 - Present</p>
-        <ul class="list-disc list-disc-inside text-gray-700 text-sm sm:text-base space-y-1">
-          <li>Contributed to the development of a flagship AI document editor, focusing on data extraction and Retrieval-Augmented Generation (RAG) to build solutions that matter.</li>
-          <li>Gained extensive experience with AI, LLMs, and distributed cloud systems.</li>
-          <li>Applied core software engineering principles to a product that directly impacts the user experience and drives innovation.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="py-6 border-b border-gray-200">
-      <h2 class="text-xl sm:text-2xl font-bold text-gray-700 tracking-wide mb-3">Education</h2>
-      <div class="mb-4">
-        <p class="text-gray-700 text-sm sm:text-base">
-          <strong class="font-semibold text-gray-800">Nottingham Trent University</strong> | Nottingham, UK<br>
-          Bachelor's degree, Software Engineering | Sep 2021 - Jul 2025
-        </p>
-      </div>
-      <div>
-        <p class="text-gray-700 text-sm sm:text-base">
-          <strong class="font-semibold text-gray-800">Babcock University</strong> | Ilishan-Remo, Nigeria<br>
-          Bachelor's degree, Software Engineering | Aug 2019 - 2021
-        </p>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="py-6">
-      <h2 class="text-xl sm:text-2xl font-bold text-gray-700 tracking-wide mb-3">Skills</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm sm:text-base text-gray-700">
-        <div>
-          <strong class="font-semibold text-gray-800">Programming Languages:</strong>
-          <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
-            <li>C#, Python, Java, JavaScript, SQL</li>
-          </ul>
+        <div class="flex flex-col md:flex-row justify-between mb-8">
+            <div class="mb-4 md:mb-0">
+                <h2 class="font-bold text-lg mb-2">From:</h2>
+                <p>[Your Name]</p>
+                <p>[Your Address]</p>
+                <p>[Your Email]</p>
+                <p>[Your Phone Number]</p>
+            </div>
+            <div>
+                <h2 class="font-bold text-lg mb-2">To:</h2>
+                <p>[Client Company Name]</p>
+                <p>123 Main Street</p>
+                <p>New York, NY 10001, USA</p>
+                <p>[Client Contact Person]</p>
+            </div>
         </div>
-        <div>
-          <strong class="font-semibold text-gray-800">Cloud & AI:</strong>
-          <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
-            <li>Cloud Computing, Retrieval-Augmented Generation (RAG), Custom GPTs, Docker</li>
-          </ul>
-        </div>
-        <div>
-          <strong class="font-semibold text-gray-800">Technologies:</strong>
-          <ul class="mt-1 list-disc list-disc-inside pl-4 space-y-0.5">
-            <li>ASP.NET Core, RESTful APIs, Git, Microsoft Azure Services</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        
+        <hr class="border-gray-300 mb-8">
 
-  </div>
+        <div class="flex justify-between mb-8 text-sm md:text-base">
+            <div>
+                <p><strong class="font-semibold">Invoice #:</strong> IN-2025-09-05-001</p>
+                <p><strong class="font-semibold">Date:</strong> September 5, 2025</p>
+            </div>
+            <div>
+                <p><strong class="font-semibold">Payment Due:</strong> September 19, 2025</p>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold mb-4">Project Description</h3>
+            <div class="bg-gray-100 p-4 rounded-lg">
+                <p class="font-semibold text-lg mb-2">Fraud Detection Software Development</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Real-time transaction analysis</li>
+                    <li>Anomaly detection algorithms</li>
+                    <li>User behavior monitoring module</li>
+                    <li>Integration with existing platform infrastructure</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold mb-4">Breakdown of Services</h3>
+            <div class="overflow-x-auto rounded-lg">
+                <table class="min-w-full bg-white">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="px-4 py-3 text-left font-semibold text-sm md:text-base">Service</th>
+                            <th class="px-4 py-3 text-left font-semibold text-sm md:text-base">Rate</th>
+                            <th class="px-4 py-3 text-left font-semibold text-sm md:text-base">Hours</th>
+                            <th class="px-4 py-3 text-left font-semibold text-sm md:text-base">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b last:border-0 hover:bg-gray-50">
+                            <td class="px-4 py-3">Project Management</td>
+                            <td class="px-4 py-3">$75.00/hr</td>
+                            <td class="px-4 py-3">10</td>
+                            <td class="px-4 py-3">$750.00</td>
+                        </tr>
+                        <tr class="border-b last:border-0 hover:bg-gray-50">
+                            <td class="px-4 py-3">Software Development</td>
+                            <td class="px-4 py-3">$150.00/hr</td>
+                            <td class="px-4 py-3">80</td>
+                            <td class="px-4 py-3">$12,000.00</td>
+                        </tr>
+                        <tr class="border-b last:border-0 hover:bg-gray-50">
+                            <td class="px-4 py-3">System Testing & Q/A</td>
+                            <td class="px-4 py-3">$100.00/hr</td>
+                            <td class="px-4 py-3">20</td>
+                            <td class="px-4 py-3">$2,000.00</td>
+                        </tr>
+                        <tr class="font-bold text-gray-900 border-t-2 border-gray-400">
+                            <td class="px-4 py-3 text-right" colspan="3">SUBTOTAL</td>
+                            <td class="px-4 py-3">$14,750.00</td>
+                        </tr>
+                        <tr class="font-bold text-gray-900">
+                            <td class="px-4 py-3 text-right" colspan="3">TAX (0%)</td>
+                            <td class="px-4 py-3">$0.00</td>
+                        </tr>
+                        <tr class="font-bold text-gray-900 text-lg border-t-2 border-gray-400">
+                            <td class="px-4 py-3 text-right" colspan="3">TOTAL DUE</td>
+                            <td class="px-4 py-3">$14,750.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-2xl font-bold mb-4">Payment Information</h3>
+            <div class="bg-gray-100 p-4 rounded-lg">
+                <p><strong class="font-semibold">Bank Transfer</strong></p>
+                <p><strong class="font-semibold">Account Name:</strong> Freelance Tech Services LLC</p>
+                <p><strong class="font-semibold">Bank:</strong> US Bank</p>
+                <p><strong class="font-semibold">Account Number:</strong> 1234567890</p>
+            </div>
+        </div>
+
+        <p class="text-center text-gray-500 mt-10 text-sm">Thank you for your business. We look forward to working with you again.</p>
+
+    </div>
 
 </body>
 </html>
