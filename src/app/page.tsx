@@ -7,6 +7,10 @@ function Home() {
   const editorObj = useRef<DocumentEditorContainerComponent | null>(null);
   let contentChanged = false;
 
+  const fontFamilies = {
+    fontFamilies: ['Algerian', 'Arial', 'Calibri', 'Cambria', 'Roboto', 'Raleway', 'Lato'],
+  };
+
   function onContentChange() {
     contentChanged = true;
     console.log("contentChanged", contentChanged);
@@ -20,7 +24,14 @@ function Home() {
     const defaultCharacterFormat = {
       fontFamily: 'Arial',
     };
+    
     editorObj.current?.documentEditor.setDefaultCharacterFormat(defaultCharacterFormat);
+    editorObj.current?.documentEditor.setCustomFonts([
+      { fontFamily: 'Roboto', src: "url('https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxK.woff2')" },
+      { fontFamily: 'Raleway', src: "url('https://fonts.gstatic.com/s/raleway/v13/1Ptug8zYS_SKggPNyC0ITw.woff2')" },
+      { fontFamily: 'Lato', src: "url('/fonts/Lato-Regular.ttf')" }
+    ]);
+
   }
 
   return (
@@ -39,6 +50,7 @@ function Home() {
       </div>
       <div style={{ marginTop: 10 }}>
         <DocumentEditorContainerComponent
+          documentEditorSettings={fontFamilies}
           ref={editorObj}
           height='90vh'
           contentChange={onContentChange}
