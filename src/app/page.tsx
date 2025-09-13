@@ -10,7 +10,6 @@ function Home() {
   function onContentChange() {
     contentChanged = true;
     console.log("contentChanged", contentChanged);
-    documenteditor.isReadOnly = true;
   }
 
   const onSave = () => {
@@ -30,12 +29,39 @@ function Home() {
     editorObj.current?.documentEditor.open(data);
   }
 
+  // Alternative method that only highlights without replacing text
+  const handleHighlightOnly = async () => {
+    const editor = editorObj.current?.documentEditor;
+    const selection = editor?.selection;
+
+    if (!editor || !selection || selection.isEmpty) return;
+    // Insert bookmark to selected content
+    editorObj.current?.documentEditor.editor.insertBookmark('Bookmark1');
+    //Select the bookmark
+    editorObj.current?.documentEditor.selection.selectBookmark('Bookmark1');
+    // To get the selected content as sfdt
+    const selectedContent: string = editorObj.current?.documentEditor.selection.sfdt || '';
+    // Insert the sfdt content in cursor position using paste API
+
+    editorObj.current?.documentEditor.editor.insertText("<tabs-highlight> ");
+    editorObj.current?.documentEditor.editor.paste(selectedContent);
+    editorObj.current?.documentEditor.editor.insertText(" </tabs-highlight>");
+
+  };
+
+
   return (
     <div className="App">
       <div className='cover-container' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 32px' }}>
         <div style={{ display: 'flex', alignItems: 'center', height: '100%' }} className='text-2xl font-bold header-name'>
           🧚 Tabs Editor
         </div>
+          <button 
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow transition-colors duration-200" 
+            onClick={handleHighlightOnly}
+          >
+            Highlight Only
+          </button>
         <button
           onClick={onSave}
           className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow transition-colors duration-200"
@@ -50,7 +76,7 @@ function Home() {
           height='90vh'
           contentChange={onContentChange}
           enableToolbar={true}
-          serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
+          serviceUrl="https://ej2-document-editor-web-services.tabseditor.com/api/documenteditor/"
           created={onCreate}
         >
           <Inject services={[Toolbar]} />
